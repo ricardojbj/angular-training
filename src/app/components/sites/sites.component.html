@@ -1,0 +1,7 @@
+<input type="text" [ngModel]="valorRecibido" (ngModelChange)="valuechange($event)" />
+
+<div class="container mt-3 d-flex justify-content-between">
+  <button class="btn btn-primary">Botón</button>
+  <button class="btn btn-success" (click)="modificaValor()">Success</button>
+</div>
+

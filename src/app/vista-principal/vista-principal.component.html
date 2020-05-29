@@ -1,0 +1,18 @@
+
+<div class="container mt-4">
+    <div class="border border-danger">
+        <app-sites 
+            [valorRecibido]="nuevoValor"
+            (variableSalida)="recibeData($event)"
+        >
+        </app-sites>
+    </div>
+
+    <div class="mt-3">
+        <button class="btn btn-danger" (click)="aumentarNumero()">Aumenta</button>
+    </div>
+</div>
+
+
+
+
