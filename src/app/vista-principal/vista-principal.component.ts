@@ -1,27 +1,77 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-vista-principal',
   templateUrl: './vista-principal.component.html',
-  styleUrls: ['./vista-principal.component.css']
+  styleUrls: ['./vista-principal.component.css'],
 })
 export class VistaPrincipalComponent implements OnInit {
 
-  nuevoValor: any = 0;
-  dataEntrante: any;
+  form: FormGroup;
+  formIsValid: boolean;
 
-  constructor() { }
+  listaPaises = [
+    {
+      id: 1,
+      nombre: 'Venezuela',
+    },
+    {
+      id: 2,
+      nombre: 'Colombia',
+    },
+    {
+      id: 3,
+      nombre: 'México',
+    },
+    {
+      id: 4,
+      nombre: 'Brasil',
+    },
+    {
+      id: 5,
+      nombre: 'Chile',
+    },
+    {
+      id: 6,
+      nombre: 'Ecuador',
+    },
+  ];
+
+  listaGeneros = [
+    {
+      id: 1,
+      nombre: 'masculino',
+    },
+    {
+      id: 2,
+      nombre: 'femenino',
+    }
+  ];
+
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
+    this.buildForm();
   }
 
-  aumentarNumero() {
-    this.nuevoValor = this.nuevoValor + 1;
+  buildForm() {
+    this.form = this.formBuilder.group({
+      paises: [null, Validators.required],
+      nombre: [null , Validators.required],
+      genero: [null, Validators.required],
+      descripcion: [null, [Validators.required, Validators.minLength(10), Validators.maxLength(20)]]
+    });
+
+
+    this.form.valueChanges.subscribe( (data) => {
+      this.formIsValid = this.form.valid;
+    });
+
   }
 
-  recibeData(evt) {
-    this.dataEntrante = evt;
-    console.log(evt);
+  sendForm() {
+    console.log(this.form.value);
+    console.log(this.form.valid);
   }
-
 }

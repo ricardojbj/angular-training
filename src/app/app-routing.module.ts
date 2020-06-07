@@ -22,11 +22,11 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: NotFoundComponent
+    component: MiscelaneousComponent
   },
   {
     path: '**',
-    component: MiscelaneousComponent
+    component: NotFoundComponent
   }
 ];
 
