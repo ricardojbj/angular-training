@@ -1,0 +1,57 @@
+<div class="container">
+    <form [formGroup]="form">
+        <div class="row mt-5">
+            <div class="col-lg-3" >
+                <input type="text" class="form-control" formControlName="nombre" placeholder="Ingrese Nombre" pattern="[A-Za-z]">
+            </div>
+            <div class="col-lg-3">
+                <input type="text" class="form-control" formControlName="apellido" placeholder="Ingrese Apellido">
+            </div>
+            <div class="col-lg-3">
+                <input type="text" class="form-control"  formControlName="dni" placeholder="Ingrese R.U.T" minlength="8" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" >
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-3">
+                <select formControlName ="estado" class="form-control"  id="estado" placeholder="Seleccione" >
+                    <option *ngFor="let estado of listaEstados" [value]="estado.id">
+                        {{estado.nombre}}
+                    </option>
+                </select>   
+            </div>
+            <div class="col-lg-3">
+                <select formControlName="genero" class="form-control" id="genero" placeholder="Seleccione">
+                    <option *ngFor="let genero of listaGeneros" [value]="genero.id">
+                        {{ genero.nombre }}
+                    </option>
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <input type="text" class="form-control" formControlName="nombre" placeholder="Ingrese su correo">
+            </div>
+        </div>
+    </form>
+    <div class="container mt-3">
+        <button class="btn btn-primary" (click)="sendForm()" [disabled]="!formIsValid">
+            Enviar
+        </button>
+    </div>
+    
+</div>
+      <!--   <div class="row mt-5">
+            <div class="col-lg-3">
+                <input type="text" class="form-control" formControlName="nombre" placeholder="Ingrese Nombre">
+            </div>
+            <div class="col-lg-3">
+                <input type="text" class="form-control" formControlName="descripcion" placeholder="Ingrese Apellido">
+            </div>
+            <div class="col-lg-3">
+                 <div>
+                    <select class="form-control" formControlName='paises' id="paises" placeholder="Seleccione">
+                        <option *ngFor="let pais of listaPaises" [value]="pais.id">
+                             {{ pais.nombre}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div> -->

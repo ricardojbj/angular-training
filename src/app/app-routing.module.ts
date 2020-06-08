@@ -5,9 +5,14 @@ import { SitesComponent } from './components/sites/sites.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MiscelaneousComponent } from './components/miscelaneous/miscelaneous.component';
 import { VistaPrincipalComponent } from './vista-principal/vista-principal.component';
+import { FormularioComponent } from './formulario/formulario.component';
 
 
 const routes: Routes = [
+  {
+    path: 'formulario',
+    component: FormularioComponent
+  },
   {
     path: 'vistaprincipal',
     component: VistaPrincipalComponent
@@ -27,7 +32,7 @@ const routes: Routes = [
   {
     path: '**',
     component: NotFoundComponent
-  }
+  },
 ];
 
 @NgModule({

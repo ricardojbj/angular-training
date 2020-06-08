@@ -9,6 +9,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MiscelaneousComponent } from './components/miscelaneous/miscelaneous.component';
 import { VistaPrincipalComponent } from './vista-principal/vista-principal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormularioComponent } from './formulario/formulario.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SitesComponent,
     NotFoundComponent,
     MiscelaneousComponent,
-    VistaPrincipalComponent
+    VistaPrincipalComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,
