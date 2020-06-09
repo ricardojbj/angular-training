@@ -2,56 +2,99 @@
     <form [formGroup]="form">
         <div class="row mt-5">
             <div class="col-lg-3" >
-                <input type="text" class="form-control" formControlName="nombre" placeholder="Ingrese Nombre" pattern="[A-Za-z]">
+                <label><b>Nombre</b></label>
+                <input type="text" class="form-control" formControlName="nombre" placeholder=". . . " pattern="[A-Za-z]" >
             </div>
             <div class="col-lg-3">
-                <input type="text" class="form-control" formControlName="apellido" placeholder="Ingrese Apellido">
+                <label><b>Apellido</b></label>
+                <input type="text" class="form-control" formControlName="apellido" placeholder=". . ." pattern="[A-Za-z]"  >
             </div>
             <div class="col-lg-3">
-                <input type="text" class="form-control"  formControlName="dni" placeholder="Ingrese R.U.T" minlength="8" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" >
+                <label><b>DNI</b></label>
+                <input type="text" 
+                class="form-control"  
+                formControlName="dni" 
+                placeholder=". . ."
+                onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+                minlength="8"
+                maxlength="10"> 
             </div>
         </div>
         <div class="row mt-5">
             <div class="col-lg-3">
+                <label><b>Estado Civil</b></label>
                 <select formControlName ="estado" class="form-control"  id="estado" placeholder="Seleccione" >
-                    <option *ngFor="let estado of listaEstados" [value]="estado.id">
+                    <option *ngFor="let estado of listaEstado" [value]="estado.id">
                         {{estado.nombre}}
                     </option>
                 </select>   
             </div>
             <div class="col-lg-3">
+                <label><b>Sexo</b></label>
                 <select formControlName="genero" class="form-control" id="genero" placeholder="Seleccione">
                     <option *ngFor="let genero of listaGeneros" [value]="genero.id">
-                        {{ genero.nombre }}
+                        {{genero.nombre}}
                     </option>
                 </select>
             </div>
             <div class="col-lg-3">
-                <input type="text" class="form-control" formControlName="nombre" placeholder="Ingrese su correo">
+                <label><b>Correo Electrónico</b></label>
+                <input type="email" class="form-control" formControlName="correo" placeholder=". . .">
+            </div>
+         </div>
+        <div class="row mt-5">
+            <div class="col-lg-3">
+                <label><b>País de origen</b></label>
+                  <select class="form-control" formControlName="paises" id="paises" placeholder="Seleccione">
+                        <option *ngFor="let pais of listaPaises" [value]="pais.id">
+                         {{pais.nombre}}
+                     </option>
+                  </select>
+            </div>
+            <div class="col-lg-3">
+                <label><b>Fecha de Nacimiento</b></label>
+                <input type="date" class="form-control" 
+                formControlName="fecha" 
+                placeholder=". . ."
+                min="1900-01-01"
+                max="2021-01-01" >
+
+            </div>  
+            <div class="col-lg-3">
+                <label><b>Ocupación</b></label>
+                <select class="form-control" formControlName="ocupacion" id="ocupacion" placeholder="Seleccione">
+                    <option *ngFor="let ocupacion of listaOcupacion" [value]="ocupacion.id">
+                        {{ocupacion.nombre}}
+                    </option>
+                </select>
+            </div>
+        </div>    
+        <div class="row mt-5">
+            <div class="col-lg-3">
+            <label><b>Número de teléfono</b></label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend3"><b>+56</b></span>
+                </div>
+                <input type="text" 
+                class="form-control" 
+                placeholder=". . ." 
+                formControlName="telefono"
+                aria-describedby="inputGroupPrepend3" 
+                onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+                minlength="9"
+                maxlength="9"> 
+            </div>
             </div>
         </div>
-    </form>
-    <div class="container mt-3">
-        <button class="btn btn-primary" (click)="sendForm()" [disabled]="!formIsValid">
+    </form>  
+    <div class="container mt-5 ">
+        <button class="btn btn-primary btn-ml-2" 
+            style="width: 300px; text-align: center" 
+            (click)="sendForm()" 
+            [disabled]="!formIsValid">
             Enviar
         </button>
-    </div>
-    
+    </div>   
 </div>
-      <!--   <div class="row mt-5">
-            <div class="col-lg-3">
-                <input type="text" class="form-control" formControlName="nombre" placeholder="Ingrese Nombre">
-            </div>
-            <div class="col-lg-3">
-                <input type="text" class="form-control" formControlName="descripcion" placeholder="Ingrese Apellido">
-            </div>
-            <div class="col-lg-3">
-                 <div>
-                    <select class="form-control" formControlName='paises' id="paises" placeholder="Seleccione">
-                        <option *ngFor="let pais of listaPaises" [value]="pais.id">
-                             {{ pais.nombre}}
-                        </option>
-                    </select>
-                </div>
-            </div>
-        </div> -->
+    

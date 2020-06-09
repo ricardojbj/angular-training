@@ -38,7 +38,47 @@ export class FormularioComponent implements OnInit {
     },
     {
       id: 7,
+      nombre: 'Perú',
+    },
+    {
+      id: 8,
       nombre: 'Venezuela'
+    }
+  ];
+
+  listaOcupacion = [
+    {
+      id: 1,
+      nombre: 'Abogado(a)',
+    },
+    {
+      id: 2,
+      nombre: 'Arquitecto(a)',
+    },
+    {
+      id: 3,
+      nombre: 'Deportista',
+    },
+    {
+      id: 4,
+      nombre: 'Estudiante',
+    },
+    {
+      id: 5,
+      nombre: 'Ingeniero(a)',
+    },
+    
+    {
+      id: 6,
+      nombre: 'Licenciado(a)',
+    },
+    {
+      id: 7,
+      nombre: 'Médico(a)',
+    },
+    {
+      id: 8,
+      nombre: 'Profesor(a)'
     }
   ];
 
@@ -52,14 +92,15 @@ export class FormularioComponent implements OnInit {
       nombre: 'Femenino',
     }
   ];
+
   listaEstado = [
     {
       id: 1,
-      nombre: 'Soltero',
+      nombre: 'Soltero(a)',
     },
     {
       id: 2,
-      nombre: 'Casado',
+      nombre: 'Casado(a)',
     }
   ];
 
@@ -71,18 +112,27 @@ export class FormularioComponent implements OnInit {
   }
 
   buildForm() {
+   
     this.form = this.formBuilder.group({
-      paises: [null, Validators.required],
       nombre: [null, Validators.required],
-      genero: [null, Validators.required],
-      apellido: [null, Validators.required], /* Validators.minLength(10), Validators.maxLength(20)]] */
+      apellido: [null, Validators.required],
+      dni: [null, Validators.required],
       estado: [null, Validators.required],
-      dni:[null, Validators.required]
+      genero: [null, Validators.required],
+      correo: [null, Validators.required],
+      paises: [null, Validators.required],
+      fecha: [null, Validators.required],
+      ocupacion: [null],
+      telefono:[null, Validators.required]
     });
 
 
     this.form.valueChanges.subscribe((data) => {
+    
+      
       this.formIsValid = this.form.valid;
+      console.log(this.form.valid);
+      
     });
 
   }
