@@ -64,7 +64,7 @@ export class VistaPrincipalComponent implements OnInit {
     });
 
 
-    this.form.valueChanges.subscribe( (data) => {
+    this.form.valueChanges.subscribe((data) => {
       this.formIsValid = this.form.valid;
     });
 
