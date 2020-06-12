@@ -9,6 +9,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MiscelaneousComponent } from './components/miscelaneous/miscelaneous.component';
 import { VistaPrincipalComponent } from './vista-principal/vista-principal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VistaGeneralComponent } from './vista-general/vista-general.component';
+import { FormularioGeneralComponent } from './components/formulario-general/formulario-general.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SitesComponent,
     NotFoundComponent,
     MiscelaneousComponent,
-    VistaPrincipalComponent
+    VistaPrincipalComponent,
+    VistaGeneralComponent,
+    FormularioGeneralComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
   ],
   bootstrap: [
-    AppComponent
+    AppComponent,
   ]
 })
 export class AppModule { }

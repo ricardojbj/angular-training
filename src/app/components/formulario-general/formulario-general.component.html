@@ -1,0 +1,31 @@
+<div class="container">
+    <div>
+        <h5>Mensaje Recibido: {{ mensajeRecibido }}</h5>
+    </div>
+    <form [formGroup] = "form">
+        <div class="row mt-5">
+            <div class="col-lg-6">
+                <div>
+                    <label for="">Nombre</label>
+                </div>
+                <input 
+                    type="text"
+                    class="form-control" 
+                    formControlName = "name"
+                >
+            </div>
+            <div class="col-lg-6">
+                 <div>
+                   <label for="">Género</label>
+                 </div>
+                <select 
+                    formControlName="gender"
+                    class="form-control"
+                >
+                    <option value="1">Masculino</option>
+                    <option value="2">Femenino</option>
+                </select>
+            </div>
+        </div>
+    </form>
+</div>

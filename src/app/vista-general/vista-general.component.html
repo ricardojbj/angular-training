@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Datos del Usuario</h1>
+</div>
+
+<div class="container mt-3">
+    <div class="border pb-5">
+        <app-formulario-general
+            [mensajeRecibido] = "mensaje"
+            (salida) = "getFormValues($event)"
+        >
+    
+        </app-formulario-general>
+    </div>
+    <div class="mt-4 text-right">
+        <button 
+            class="btn btn-success"
+            [disabled] = "disableButton" 
+        >Enviar</button>
+    </div>
+</div>
+
+
+
+<div class="container mt-5">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur sed laboriosam nisi perferendis aliquam atque quas, iste quasi molestiae. A deserunt, illum repellendus nesciunt animi iusto ratione eos! Mollitia, voluptate.</p>
+</div>

@@ -5,9 +5,15 @@ import { SitesComponent } from './components/sites/sites.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MiscelaneousComponent } from './components/miscelaneous/miscelaneous.component';
 import { VistaPrincipalComponent } from './vista-principal/vista-principal.component';
+import { AppComponent } from './app.component';
+import { VistaGeneralComponent } from './vista-general/vista-general.component';
 
 
 const routes: Routes = [
+  {
+    path: 'vistageneral',
+    component: VistaGeneralComponent
+  },
   {
     path: 'vistaprincipal',
     component: VistaPrincipalComponent

@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-vista-principal',
   templateUrl: './vista-principal.component.html',
   styleUrls: ['./vista-principal.component.css'],
 })
+
 export class VistaPrincipalComponent implements OnInit {
+
+  @Output() salida: EventEmitter<any> = new EventEmitter();
 
   form: FormGroup;
   formIsValid: boolean;
@@ -66,6 +69,7 @@ export class VistaPrincipalComponent implements OnInit {
 
     this.form.valueChanges.subscribe( (data) => {
       this.formIsValid = this.form.valid;
+      this.salida.emit();
     });
 
   }
@@ -74,4 +78,13 @@ export class VistaPrincipalComponent implements OnInit {
     console.log(this.form.value);
     console.log(this.form.valid);
   }
+
+
+  pruebaEmisor(evt) {
+    
+  }
+
+  controlMatrix() {
+   
+ }
 }
