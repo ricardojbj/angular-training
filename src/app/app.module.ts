@@ -11,6 +11,7 @@ import { VistaPrincipalComponent } from './vista-principal/vista-principal.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VistaGeneralComponent } from './vista-general/vista-general.component';
 import { FormularioGeneralComponent } from './components/formulario-general/formulario-general.component';
+import { FormularioComponent } from './formulario/formulario.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormularioGeneralComponent } from './components/formulario-general/form
     MiscelaneousComponent,
     VistaPrincipalComponent,
     VistaGeneralComponent,
-    FormularioGeneralComponent
+    FormularioGeneralComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,

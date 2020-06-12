@@ -7,9 +7,14 @@ import { MiscelaneousComponent } from './components/miscelaneous/miscelaneous.co
 import { VistaPrincipalComponent } from './vista-principal/vista-principal.component';
 import { AppComponent } from './app.component';
 import { VistaGeneralComponent } from './vista-general/vista-general.component';
+import { FormularioComponent } from './formulario/formulario.component';
 
 
 const routes: Routes = [
+  {
+    path: 'formulario',
+    component: FormularioComponent
+  },
   {
     path: 'vistageneral',
     component: VistaGeneralComponent
@@ -33,7 +38,7 @@ const routes: Routes = [
   {
     path: '**',
     component: NotFoundComponent
-  }
+  },
 ];
 
 @NgModule({
