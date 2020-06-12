@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'formulario',
+  selector: 'app-formulario',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css'],
 })
@@ -67,7 +67,6 @@ export class FormularioComponent implements OnInit {
       id: 5,
       nombre: 'Ingeniero(a)',
     },
-    
     {
       id: 6,
       nombre: 'Licenciado(a)',
@@ -112,7 +111,6 @@ export class FormularioComponent implements OnInit {
   }
 
   buildForm() {
-   
     this.form = this.formBuilder.group({
       nombre: [null, Validators.required],
       apellido: [null, Validators.required],
@@ -122,17 +120,14 @@ export class FormularioComponent implements OnInit {
       correo: [null, Validators.required],
       paises: [null, Validators.required],
       fecha: [null, Validators.required],
-      ocupacion: [null],
-      telefono:[null, Validators.required]
+      ocupacion: [null, Validators.required],
+      telefono: [null, Validators.required]
     });
 
 
     this.form.valueChanges.subscribe((data) => {
-    
-      
       this.formIsValid = this.form.valid;
       console.log(this.form.valid);
-      
     });
 
   }
