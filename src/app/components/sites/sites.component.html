@@ -1,7 +1,23 @@
-<input type="text" [ngModel]="valorRecibido" (ngModelChange)="valuechange($event)" />
 
-<div class="container mt-3 d-flex justify-content-between">
-  <button class="btn btn-primary">Botón</button>
-  <button class="btn btn-success" (click)="modificaValor()">Success</button>
+<!-- Sites Component (Padre) -->
+<div class="container border mt-3">
+  <table class="table table-condensed table-striped table-sm table-hover">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ form.nombre }}</td>
+        <td>{{ form.apellido }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+<div>
+  <app-formulario (formulario) = "recibeForm($event)">
 
+  </app-formulario>
+</div>

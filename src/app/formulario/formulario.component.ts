@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
@@ -7,6 +7,8 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
   styleUrls: ['./formulario.component.css'],
 })
 export class FormularioComponent implements OnInit {
+
+  @Output() formulario: EventEmitter<any> = new EventEmitter();
 
   form: FormGroup;
   formIsValid: boolean;
@@ -133,7 +135,10 @@ export class FormularioComponent implements OnInit {
   }
 
   sendForm() {
-    console.log(this.form.value);
-    console.log(this.form.valid);
+    console.log('Sin el Value: ');
+    console.log(this.form);
+    this.formulario.emit(this.form.value);
   }
+
+
 }

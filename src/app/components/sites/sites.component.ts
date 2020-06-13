@@ -8,27 +8,20 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SitesComponent implements OnInit {
 
-  @Input() valorRecibido: any;
-  @Output() variableSalida: EventEmitter<any> = new EventEmitter();
-
-  valor = 0;
-  mymodel;
-  mensajeBorrar;
+  form: any = {
+    nombre: '',
+    apellido: '',
+  };
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  modificaValor() {
-    this.valor += 1;
-    this.variableSalida.emit(this.valor);
-  }
-
-  valuechange(newValue) {
-    this.mymodel = newValue;
-    console.log(newValue);
-    this.mymodel = this.mensajeBorrar;
+  recibeForm(evt) {
+    this.form = evt;
+    console.log('Llega Formulario:');
+    console.log(this.form);
   }
 
 }
