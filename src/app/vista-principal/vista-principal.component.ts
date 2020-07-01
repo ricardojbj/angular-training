@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
+
 
 @Component({
   selector: 'app-vista-principal',
@@ -9,82 +10,20 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 export class VistaPrincipalComponent implements OnInit {
 
-  @Output() salida: EventEmitter<any> = new EventEmitter();
+  urlPrueba = 'https://api.exchangeratesapi.io/latest';
+  datos: any;
 
-  form: FormGroup;
-  formIsValid: boolean;
-
-  listaPaises = [
-    {
-      id: 1,
-      nombre: 'Venezuela',
-    },
-    {
-      id: 2,
-      nombre: 'Colombia',
-    },
-    {
-      id: 3,
-      nombre: 'México',
-    },
-    {
-      id: 4,
-      nombre: 'Brasil',
-    },
-    {
-      id: 5,
-      nombre: 'Chile',
-    },
-    {
-      id: 6,
-      nombre: 'Ecuador',
-    },
-  ];
-
-  listaGeneros = [
-    {
-      id: 1,
-      nombre: 'masculino',
-    },
-    {
-      id: 2,
-      nombre: 'femenino',
-    }
-  ];
-
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private http: ApiService) {}
 
   ngOnInit() {
-    this.buildForm();
+
   }
 
-  buildForm() {
-    this.form = this.formBuilder.group({
-      paises: [null, Validators.required],
-      nombre: [null , Validators.required],
-      genero: [null, Validators.required],
-      descripcion: [null, [Validators.required, Validators.minLength(10), Validators.maxLength(20)]]
+  getData() {
+    this.http.getPrueba(this.urlPrueba).subscribe(algo => {
+      this.datos = algo;
+      console.log(this.datos);
     });
-
-
-    this.form.valueChanges.subscribe((data) => {
-      this.formIsValid = this.form.valid;
-      this.salida.emit();
-    });
-
   }
 
-  sendForm() {
-    console.log(this.form.value);
-    console.log(this.form.valid);
-  }
-
-
-  pruebaEmisor(evt) {
-    
-  }
-
-  controlMatrix() {
-   
- }
 }

@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VistaGeneralComponent } from './vista-general/vista-general.component';
 import { FormularioGeneralComponent } from './components/formulario-general/formulario-general.component';
 import { FormularioComponent } from './formulario/formulario.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FormularioComponent } from './formulario/formulario.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   bootstrap: [
     AppComponent,

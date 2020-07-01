@@ -1,72 +1,34 @@
 
-<div class="container">
-    <form [formGroup]="form">
-        <div class="row mt-5">
-            <div class="col-lg-3">
-                <div>
-                    <select 
-                        class="form-control"
-                        formControlName = 'paises'
-                        id="paises"
-                        placeholder="Seleccione"
-                    >
-                        <option 
-                            *ngFor="let pais of listaPaises" 
-                            [value]="pais.id"
-                        >
-                            {{ pais.nombre}}
-                        </option>                    
-                    </select>
-                </div>        
-            </div>
-            <div class="col-lg-3">
-                <input 
-                    type="text"
-                    class="form-control"
-                    formControlName="nombre"
-                    placeholder="Ingrese Nombre"
-                >
-            </div>
-            <div class="col-lg-3">
-                <select 
-                    formControlName="genero" 
-                    class="form-control"
-                    id="genero"
-                    placeholder="Seleccione"
-                >
-                    <option 
-                        *ngFor="let genero of listaGeneros" 
-                        [value]="genero.id"
-                    >
-                        {{ genero.nombre }}
-                    </option>                 
-                </select>
-            </div>
-            <div class="col-lg-3">
-                <input 
-                    type="text"
-                    class="form-control"
-                    formControlName="descripcion"
-                    placeholder="Escriba un texto..."                    
-                >
-            </div>
-        </div>
-    </form>
-
-    <div class="container mt-3">
-        <button 
-            class="btn btn-primary" 
-            (click)="sendForm()"
-            [disabled] = "!formIsValid"
-        >
-            Enviar
-        </button>
-    </div>
-
+<div class="container mt-3">
+    <button class="btn btn-primary" (click)="getData()">Obtener Datos</button>
 </div>
 
-<div class="container">
-    <button class="btn btn-primary btn-lg" (click)="pruebaEmisor($event)">Prueba Emisor</button>
+<div class="container" *ngIf="datos">
+    <p>Fecha:  {{ datos.date }}</p>
+    <p>Base: {{ datos.base }}</p>
 </div>
 
-
+<div class="container" *ngIf="datos">
+    <table class="table table-condensed table-sm table-striped table-hover">
+        <thead>
+            <tr>
+                <th>CAD</th>
+                <th>HKD</th>
+                <th>ISK</th>
+            </tr>         
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    {{ datos.rates.CAD }}
+                </td>
+                <td>
+                    {{ datos.rates.HKD }}
+                </td>
+                <td>
+                    {{ datos.rates.ISK }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
